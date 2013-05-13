@@ -1,0 +1,80 @@
+@import "compass/css3";
+
+$line-height: 26px;
+$item_width: 400px;
+$radius: 8px;
+
+.moly_tab_menu {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    height: auto;
+    border: solid 1px #CCC;
+    background-color: #FFF;
+    opacity: 0.96;
+    z-index: 2147483647;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: none;
+    @include border-radius($radius);
+    background-color: rgb(255,255,255); // Old browsers
+    @include filter-gradient(#ffffff, #f6f6f6, horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(linear-gradient(left top, rgba(255,255,255,1) 0%,rgba(251,251,251,1) 47%,rgba(246,246,246,1) 100%));
+    @include box-shadow(rgba(#000, 0.2) 2px 2px 10px);
+
+    ul {
+        margin: $radius 0px;
+        padding: 0px;
+        width: auto;
+
+        li {
+            margin: 0px;
+            padding: 0px $radius*1;
+            width: $item_width;
+            height: $line-height;
+            cursor: default;
+            list-style-type: none;
+            word-wrap: break-word;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            
+            span {
+                margin: 0px;
+                padding: 0px;
+                width: auto;
+                height: $line-height;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: $line-height;
+                font-weight: normal;
+                color: #000;
+                text-align: left;  
+                display: inline;
+            }
+     
+            &.selected {
+                background-color: #499bea; // Old browsers
+                @include filter-gradient(#499bea, #207ce5, vertical); // IE6-9
+                @include background-image(linear-gradient(top, #499bea 0%,#207ce5 100%));
+                span {
+                    color: #FFF;
+                }
+            }
+     
+            img {
+                margin: 0px;
+                padding: 0px;
+                margin-right: 4px;
+                width: 16px;
+                height: 16px;
+                vertical-align: middle;
+                display: inline;
+            }
+     
+        }
+    }
+}
