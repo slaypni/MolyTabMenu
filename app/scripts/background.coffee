@@ -2,16 +2,21 @@ tab_ids = []
 chrome.tabs.query {}, (tabs) ->
     tab_ids = tabs.reverse().map (tab) -> tab.id
 
-setTabTop = (tab_id) ->
+setTabTop = (tab_id, offset = 0) ->
     i = _.indexOf(tab_ids, tab_id)
-    if i != -1
-        id = tab_ids.splice(i, 1)[0]
-        tab_ids.unshift(id)
-    else
-        tab_ids.unshift(tab_id)
+    id = 
+        if i != -1
+            tab_ids.splice(i, 1)[0]
+        else
+            tab_id
+    tab_ids.splice(offset, 0, id)
 
 chrome.tabs.onActivated.addListener (activeInfo) ->
     setTabTop(activeInfo.tabId)
+
+chrome.tabs.onCreated.addListener (tab) ->
+    if tab.id not in tab_ids and tab_ids.length > 0
+        setTabTop(tab.id, 1)
 
 chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
     getFunction = ->

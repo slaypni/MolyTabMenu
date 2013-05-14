@@ -145,9 +145,10 @@ class Menu
             if not @element?
                 @createElement()
                 @loadTabs =>
-                    @element.innerHTML = @template(@)
-                    @setRect()
                     getTab (tab) =>
+                        @tabs = _.filter @tabs, (t) -> t.windowId == tab.windowId
+                        @element.innerHTML = @template(@)
+                        @setRect()
                         current_index = _.indexOf (@tabs.map (t) -> t.id), tab.id
                         current_index = if current_index == -1 then 0 else current_index
                         @selectTab(((current_index + direction) % @tabs.length + @tabs.length) % @tabs.length)
