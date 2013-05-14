@@ -4,6 +4,20 @@ $line-height: 26px;
 $item_width: 400px;
 $radius: 8px;
 
+@mixin font-setting {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: $line-height;
+    font-weight: normal;
+    text-shadow: none;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    text-decoration: none;
+    word-spacing: normal;
+    letter-spacing: normal;
+}
+
 .moly_tab_menu {
     position: fixed;
     left: 0px;
@@ -43,6 +57,7 @@ $radius: 8px;
             word-wrap: break-word;
             white-space: nowrap;
             text-overflow: ellipsis;
+            @include font-setting;
             overflow: hidden;
             
             span {
@@ -51,18 +66,8 @@ $radius: 8px;
                 width: auto;
                 height: $line-height;
                 border: none;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 14px;
-                line-height: $line-height;
-                font-weight: normal;
                 color: #000;
-                text-shadow: none;
-                text-align: left;
-                text-indent: 0px;
-                text-transform: none;
-                text-decoration: none;
-                word-spacing: normal;
-                letter-spacing: normal;
+                @include font-setting;
                 display: inline;
             }
      
@@ -70,6 +75,7 @@ $radius: 8px;
                 background-color: #499bea; // Old browsers
                 @include filter-gradient(#499bea, #207ce5, vertical); // IE6-9
                 @include background-image(linear-gradient(top, #499bea 0%,#207ce5 100%));
+                color: #FFF;
                 span {
                     color: #FFF;
                 }
