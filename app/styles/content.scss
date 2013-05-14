@@ -29,12 +29,15 @@ $radius: 8px;
         margin: $radius 0px;
         padding: 0px;
         width: auto;
+        border: none;
+        text-align: left;
 
         li {
             margin: 0px;
             padding: 0px $radius*1;
             width: $item_width;
             height: $line-height;
+            border: none;
             cursor: default;
             list-style-type: none;
             word-wrap: break-word;
@@ -47,12 +50,19 @@ $radius: 8px;
                 padding: 0px;
                 width: auto;
                 height: $line-height;
+                border: none;
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 14px;
                 line-height: $line-height;
                 font-weight: normal;
                 color: #000;
-                text-align: left;  
+                text-shadow: none;
+                text-align: left;
+                text-indent: 0px;
+                text-transform: none;
+                text-decoration: none;
+                word-spacing: normal;
+                letter-spacing: normal;
                 display: inline;
             }
      
@@ -72,6 +82,7 @@ $radius: 8px;
                 width: 16px;
                 height: 16px;
                 vertical-align: middle;
+                border: none;
                 display: inline;
             }
      
