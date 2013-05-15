@@ -126,9 +126,7 @@ listen = (cb, doc = window, useCapture = true, targets = ['body', 'html']) ->
     state = new _KeyState()
 
     cancel = (event) ->
-        return true if event.target.className == 'moly_tab_menu'
-        return true if event.target.isContentEditable
-        return true if event.target.nodeName?.toLowerCase() in ['textarea', 'input']
+        return true if event.target != window
         state.clear()
         return true
 
