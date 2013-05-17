@@ -86,7 +86,7 @@ class Menu
         instance ?= new _Menu()
     
     class _Menu
-        constractor: ->
+        constructor: ->
             @tabs = null
             @selected = null
             @element = null
