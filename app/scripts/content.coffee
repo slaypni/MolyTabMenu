@@ -98,7 +98,7 @@ class Menu
                 <% _.each(tabs, function(tab){ %>
                     <li class="<%= tab._selected ? 'selected' : '' %>" data-tab-id="<%= tab.id %>">
                         <img src="<%= tab.favIconUrl %>">
-                        <span><%= tab.title %></span>
+                        <span><%- tab.title %></span>
                     </li>
                 <% }); %>
             </ul>
