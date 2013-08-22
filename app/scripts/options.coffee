@@ -58,14 +58,18 @@ app.directive 'settings', ->
 
         leaveTabHandler = ->
             $scope.$broadcast('leaveTab')
-            if not $scope.hasOwnProperty('settings') then return
                 
+            $scope.updateSettings()
+
+        $scope.updateSettings = ->
+            if not $scope.hasOwnProperty('settings') then return
+
             convertIntoObject = (options) ->
                 obj = {}
                 for option in options
                     obj[option.name] = option.val
                 return obj
-                
+
             settings = _.extend(convertIntoObject($scope.configs), {bindings: convertIntoObject($scope.bindings)})
             if not _.isEqual($scope.settings, settings)
                 chrome.runtime.sendMessage({type: 'setSettings', settings: settings}, loadSettings)
