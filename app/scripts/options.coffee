@@ -11,7 +11,7 @@ BINDING_DESCRIPTIONS = [
 
 MODIFIERS = ['Shift', 'Ctrl', 'Alt', 'Command', 'Meta']
 
-app = angular.module('options', []).
+app = angular.module('options', ['ngRoute']).
     config ($routeProvider) ->
         $routeProvider.when '/',
             redirectTo: '/settings'
