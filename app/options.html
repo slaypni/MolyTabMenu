@@ -71,7 +71,7 @@
                                     'disabled': (editing && editing.binding.name == binding.name && editing.index == $index),
                                     'btn-info': (editing && editing.binding.name == binding.name && editing.index == $index)}"
                           ng-click="clickShortcut($event, $parent.$index, $index)">
-                    {{[].concat([settings['menu_modifier']], shortcut).join(' ')}}
+                    <span class="text-muted">{{settings['menu_modifier']}}</span> {{shortcut.join(' ')}}
                   </button>
               </div>
               <div class="col-lg-1"
