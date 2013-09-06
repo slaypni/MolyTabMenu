@@ -84,15 +84,22 @@ class _KeyState
     event_handler: (event) =>
         keycode = parseInt(event.which ? event.keyCode)
 
+        setModifiers = =>
+            @pressed_keys = _.omit @pressed_keys, ['16', '17', '18', '92']
+            for attr, code of {shiftKey: 16, ctrlKey: 17, altKey: 18, metaKey: 92}
+                @pressed_keys[code] = true if event[attr] == true
+
         down = =>
             if @pressed_keys.hasOwnProperty(keycode)
                 return false
             @pressed_keys[keycode] = event
+            setModifiers()
             return true
 
         up = =>
             if @pressed_keys.hasOwnProperty(keycode)
                 delete @pressed_keys[keycode]
+            setModifiers()
             return true
 
         switch event.type.toLowerCase()
