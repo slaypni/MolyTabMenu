@@ -1,6 +1,6 @@
 CONFIG_DESCRIPTIONS = [
     {name: 'is_recent_order', description: 'Arrange by activated order'}
-    {name: 'menu_rocker_button', description: 'Mouse button with a wheel', candidates: ['Left', 'Middle', 'Don\'t switch using a wheel']},
+    {name: 'menu_rocker_button', description: 'Mouse button while scrolling wheel', candidates: ['Left', 'Middle', 'Don\'t switch using a wheel']},
     {name: 'menu_modifier', description: 'Modifier key for bindings', candidates: ['Shift', 'Ctrl', 'Alt', 'Command', 'Meta']},
 ]
 
